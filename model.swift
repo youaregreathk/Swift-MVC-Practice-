@@ -14,9 +14,26 @@ class model
     
     init() {
     }
-    
-     func get_password (tmp : String)-> String?{
-       return dictionary[tmp]!
+    func check_username ( tmp :String) -> Bool {
+        var flag=false
+        if let val = dictionary[tmp] {
+            // now val is not nil and the Optional has been unwrapped, so use it
+         flag=true
+        }
+     
+     return flag
     }
-
+    func check_password ( username :String, password:String) -> Bool {
+        var flag=false
+        if let key = dictionary[username] {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            if key == password {
+              flag=true
+        }
+            else {
+                flag=false
+            }
+        }
+        return flag
+     }
 }
